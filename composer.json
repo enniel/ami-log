@@ -1,0 +1,54 @@
+{
+    "name": "enniel/ami-log",
+    "type": "library",
+    "description": "Logger for ami",
+    "keywords": [
+        "Enniel",
+        "Ami",
+        "Asterisk"
+    ],
+    "homepage": "https://github.com/enniel/ami-log",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Enniel"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/support": "~5.1",
+        "illuminate/events": "~5.1",
+        "illuminate/database": "~5.1",
+        "enniel/ami": "~1.1.0"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "~2.7",
+        "phpunit/phpunit": "~5.5",
+        "orchestra/testbench": "~3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Enniel\\AmiLog\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Enniel\\AmiLog\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "scripts": {
+        "test": [
+            "@phpunit",
+            "@phpcs"
+        ],
+        "phpunit": "php vendor/bin/phpunit",
+        "phpcs": "php vendor/bin/phpcs"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
