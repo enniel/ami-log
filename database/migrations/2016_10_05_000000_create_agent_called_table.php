@@ -1,14 +1,14 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateAgentCalledTable extends Migration
 {
     /**
-     * Table name
-     * 
+     * Table name.
+     *
      * @var string
      */
     public $table = 'ami_log_agent_called';

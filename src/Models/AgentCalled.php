@@ -30,6 +30,6 @@ class AgentCalled extends Model
         'context',
         'extension',
         'priority',
-        'unique_id'
+        'unique_id',
     ];
 }

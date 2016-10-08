@@ -2,17 +2,16 @@
 
 namespace Enniel\AmiLog\Tests;
 
-use Illuminate\Support\Facades\Event as Emitter;
-use Illuminate\Support\Arr;
 use Clue\React\Ami\Protocol\Event;
-use React\Stream\Stream;
-use Enniel\AmiLog\Models\AgentConnect;
 use Enniel\AmiLog\Models\AgentComplete;
+use Enniel\AmiLog\Models\AgentConnect;
 use Enniel\AmiLog\Models\Bridge;
 use Enniel\AmiLog\Models\Dial;
 use Enniel\AmiLog\Models\FullyBooted;
 use Enniel\AmiLog\Models\Join;
 use Enniel\AmiLog\Models\Link;
+use Illuminate\Support\Facades\Event as Emitter;
+use React\Stream\Stream;
 
 class EventTest extends TestCase
 {
