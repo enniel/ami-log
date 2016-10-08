@@ -2,35 +2,33 @@
 
 namespace Enniel\AmiLog;
 
-use Illuminate\Events\Dispatcher;
-use Illuminate\Support\Str;
 use Clue\React\Ami\Protocol\Event;
-use Enniel\AmiLog\Models\AGIExec;
 use Enniel\AmiLog\Models\AgentCalled;
-use Enniel\AmiLog\Models\AgentConnect;
 use Enniel\AmiLog\Models\AgentComplete;
+use Enniel\AmiLog\Models\AgentConnect;
 use Enniel\AmiLog\Models\AgentLogin;
 use Enniel\AmiLog\Models\AgentLogoff;
 use Enniel\AmiLog\Models\Agents;
+use Enniel\AmiLog\Models\AGIExec;
 use Enniel\AmiLog\Models\AsyncAGI;
 use Enniel\AmiLog\Models\Bridge;
 use Enniel\AmiLog\Models\CEL;
 use Enniel\AmiLog\Models\ChannelUpdate;
 use Enniel\AmiLog\Models\CoreShowChannel;
 use Enniel\AmiLog\Models\CoreShowChannelsComplete;
-use Enniel\AmiLog\Models\DAHDIShowChannelsComplete;
 use Enniel\AmiLog\Models\DAHDIShowChannels;
+use Enniel\AmiLog\Models\DAHDIShowChannelsComplete;
 use Enniel\AmiLog\Models\DBGetResponse;
-use Enniel\AmiLog\Models\DTMF;
 use Enniel\AmiLog\Models\Dial;
 use Enniel\AmiLog\Models\DongleDeviceEntry;
 use Enniel\AmiLog\Models\DongleNewCUSD;
-use Enniel\AmiLog\Models\DongleNewUSSDBase64;
 use Enniel\AmiLog\Models\DongleNewUSSD;
-use Enniel\AmiLog\Models\DongleSMSStatus;
+use Enniel\AmiLog\Models\DongleNewUSSDBase64;
 use Enniel\AmiLog\Models\DongleShowDevicesComplete;
+use Enniel\AmiLog\Models\DongleSMSStatus;
 use Enniel\AmiLog\Models\DongleStatus;
 use Enniel\AmiLog\Models\DongleUSSDStatus;
+use Enniel\AmiLog\Models\DTMF;
 use Enniel\AmiLog\Models\ExtensionStatus;
 use Enniel\AmiLog\Models\FullyBooted;
 use Enniel\AmiLog\Models\Hangup;
@@ -51,33 +49,34 @@ use Enniel\AmiLog\Models\OriginateResponse;
 use Enniel\AmiLog\Models\ParkedCall;
 use Enniel\AmiLog\Models\ParkedCallsComplete;
 use Enniel\AmiLog\Models\PeerEntry;
-use Enniel\AmiLog\Models\PeerStatus;
 use Enniel\AmiLog\Models\PeerListComplete;
-use Enniel\AmiLog\Models\QueueMemberAdded;
+use Enniel\AmiLog\Models\PeerStatus;
 use Enniel\AmiLog\Models\QueueMember;
+use Enniel\AmiLog\Models\QueueMemberAdded;
 use Enniel\AmiLog\Models\QueueMemberPaused;
 use Enniel\AmiLog\Models\QueueMemberRemoved;
 use Enniel\AmiLog\Models\QueueMemberStatus;
-use Enniel\AmiLog\Models\QueueParams;
 use Enniel\AmiLog\Models\QueueStatusComplete;
-use Enniel\AmiLog\Models\QueueSummaryComplete;
 use Enniel\AmiLog\Models\QueueSummary;
+use Enniel\AmiLog\Models\QueueSummaryComplete;
+use Enniel\AmiLog\Models\RegistrationsComplete;
+use Enniel\AmiLog\Models\Registry;
+use Enniel\AmiLog\Models\Rename;
 use Enniel\AmiLog\Models\RTCPReceived;
 use Enniel\AmiLog\Models\RTCPReceiverStat;
 use Enniel\AmiLog\Models\RTCPSent;
 use Enniel\AmiLog\Models\RTPReceiverStat;
 use Enniel\AmiLog\Models\RTPSenderStat;
-use Enniel\AmiLog\Models\RegistrationsComplete;
-use Enniel\AmiLog\Models\Registry;
-use Enniel\AmiLog\Models\Rename;
 use Enniel\AmiLog\Models\ShowDialPlanComplete;
-use Enniel\AmiLog\Models\StatusComplete;
 use Enniel\AmiLog\Models\Status;
+use Enniel\AmiLog\Models\StatusComplete;
 use Enniel\AmiLog\Models\Transfer;
-use Enniel\AmiLog\Models\UnParkedCall;
 use Enniel\AmiLog\Models\UnLink;
+use Enniel\AmiLog\Models\UnParkedCall;
 use Enniel\AmiLog\Models\UserEvent;
 use Enniel\AmiLog\Models\VarSet;
+use Illuminate\Events\Dispatcher;
+use Illuminate\Support\Str;
 
 class AmiSubscriber
 {
@@ -163,10 +162,11 @@ class AmiSubscriber
     ];
 
     /**
-     * Get params from event
+     * Get params from event.
      *
-     * @param  Clue\React\Ami\Protocol\Event $event
-     * @param  array $map
+     * @param Clue\React\Ami\Protocol\Event $event
+     * @param array                         $map
+     *
      * @return array
      */
     protected function params(Event $event, array $map = [])
@@ -182,11 +182,13 @@ class AmiSubscriber
             $value = array_key_exists($first, $fields) ? $fields[$first] : null;
             $params[$second] = $value;
         }
+
         return $params;
     }
 
     /**
-     * AGIExec handler
+     * AGIExec handler.
+     *
      * @param Clue\React\Ami\Protocol\Event $event
      */
     public function agiExec(Event $event)
@@ -205,7 +207,8 @@ class AmiSubscriber
     }
 
     /**
-     * AgentCalled handler
+     * AgentCalled handler.
+     *
      * @param Clue\React\Ami\Protocol\Event $event
      */
     public function agentCalled(Event $event)
@@ -224,20 +227,20 @@ class AmiSubscriber
             'Context'            => 'context',
             'Extension'          => 'extension',
             'Priority'           => 'priority',
-            'Uniqueid'           => 'unique_id'
+            'Uniqueid'           => 'unique_id',
         ];
         $params = self::params($event, $map);
         AgentCalled::create($params);
     }
 
     /**
-     * AgentConnect handler
+     * AgentConnect handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
     public function agentConnect(Event $event)
     {
-        $map =  [
+        $map = [
             'Privilege'      => 'privilege',
             'HoldTime'       => 'hold_time',
             'BridgedChannel' => 'bridged_channel',
@@ -253,7 +256,7 @@ class AmiSubscriber
     }
 
     /**
-     * AgentComplete handler
+     * AgentComplete handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -275,7 +278,8 @@ class AmiSubscriber
     }
 
     /**
-     * Agentlogin handler
+     * Agentlogin handler.
+     *
      * @param Clue\React\Ami\Protocol\Event $event
      */
     public function agentLogin(Event $event)
@@ -291,7 +295,8 @@ class AmiSubscriber
     }
 
     /**
-     * Agentlogoff handler
+     * Agentlogoff handler.
+     *
      * @param Clue\React\Ami\Protocol\Event $event
      */
     public function agentLogoff(Event $event)
@@ -307,7 +312,8 @@ class AmiSubscriber
     }
 
     /**
-     * Agents handler
+     * Agents handler.
+     *
      * @param Clue\React\Ami\Protocol\Event $event
      */
     public function agents(Event $event)
@@ -326,7 +332,8 @@ class AmiSubscriber
     }
 
     /**
-     * AsyncAGI handler
+     * AsyncAGI handler.
+     *
      * @param Clue\React\Ami\Protocol\Event $event
      */
     public function asyncAgi(Event $event)
@@ -344,7 +351,7 @@ class AmiSubscriber
     }
 
     /**
-     * Bridge handler
+     * Bridge handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -366,7 +373,7 @@ class AmiSubscriber
     }
 
     /**
-     * CEL handler
+     * CEL handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -402,7 +409,7 @@ class AmiSubscriber
     }
 
     /**
-     * ChannelUpdate handler
+     * ChannelUpdate handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -421,7 +428,7 @@ class AmiSubscriber
     }
 
     /**
-     * CoreShowChannel handler
+     * CoreShowChannel handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -442,14 +449,14 @@ class AmiSubscriber
             'Duration'         => 'duration',
             'AccountCode'      => 'account_code',
             'BridgedChannel'   => 'bridged_channel',
-            'BridgedUniqueID'  => 'bridged_unique_id'
+            'BridgedUniqueID'  => 'bridged_unique_id',
         ];
         $params = self::params($event, $map);
         CoreShowChannel::create($params);
     }
 
     /**
-     * CoreShowChannelsComplete handler
+     * CoreShowChannelsComplete handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -463,7 +470,7 @@ class AmiSubscriber
     }
 
     /**
-     * DAHDIShowChannelsComplete handler
+     * DAHDIShowChannelsComplete handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -477,7 +484,7 @@ class AmiSubscriber
     }
 
     /**
-     * DAHDIShowChannels handler
+     * DAHDIShowChannels handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -496,7 +503,7 @@ class AmiSubscriber
     }
 
     /**
-     * DBGetResponse handler
+     * DBGetResponse handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -512,7 +519,7 @@ class AmiSubscriber
     }
 
     /**
-     * DTMF handler
+     * DTMF handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -532,7 +539,7 @@ class AmiSubscriber
     }
 
     /**
-     * Dial handler
+     * Dial handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -555,7 +562,7 @@ class AmiSubscriber
     }
 
     /**
-     * DongleDeviceEntry handler
+     * DongleDeviceEntry handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -627,7 +634,7 @@ class AmiSubscriber
     }
 
     /**
-     * DongleNewCUSD handler
+     * DongleNewCUSD handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -643,7 +650,7 @@ class AmiSubscriber
     }
 
     /**
-     * DongleNewUSSDBase64 handler
+     * DongleNewUSSDBase64 handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -659,7 +666,7 @@ class AmiSubscriber
     }
 
     /**
-     * DongleNewUSSD handler
+     * DongleNewUSSD handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -675,7 +682,7 @@ class AmiSubscriber
     }
 
     /**
-     * DongleSMSStatus handler
+     * DongleSMSStatus handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -692,7 +699,7 @@ class AmiSubscriber
     }
 
     /**
-     * DongleShowDevicesComplete handler
+     * DongleShowDevicesComplete handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -706,7 +713,7 @@ class AmiSubscriber
     }
 
     /**
-     * DongleStatus handler
+     * DongleStatus handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -722,7 +729,7 @@ class AmiSubscriber
     }
 
     /**
-     * DongleUSSDStatus handler
+     * DongleUSSDStatus handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -739,7 +746,7 @@ class AmiSubscriber
     }
 
     /**
-     * ExtensionStatus handler
+     * ExtensionStatus handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -757,7 +764,7 @@ class AmiSubscriber
     }
 
     /**
-     * FullyBooted handler
+     * FullyBooted handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -772,7 +779,7 @@ class AmiSubscriber
     }
 
     /**
-     * Hangup handler
+     * Hangup handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -792,7 +799,7 @@ class AmiSubscriber
     }
 
     /**
-     * Hold handler
+     * Hold handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -809,7 +816,7 @@ class AmiSubscriber
     }
 
     /**
-     * JabberEvent handler
+     * JabberEvent handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -825,7 +832,7 @@ class AmiSubscriber
     }
 
     /**
-     * Join handler
+     * Join handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -848,7 +855,7 @@ class AmiSubscriber
     }
 
     /**
-     * Leave handler
+     * Leave handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -866,7 +873,7 @@ class AmiSubscriber
     }
 
     /**
-     * ListDialPlan handler
+     * ListDialPlan handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -886,7 +893,7 @@ class AmiSubscriber
     }
 
     /**
-     * Masquerade handler
+     * Masquerade handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -904,7 +911,7 @@ class AmiSubscriber
     }
 
     /**
-     * MessageWaiting handler
+     * MessageWaiting handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -920,7 +927,7 @@ class AmiSubscriber
     }
 
     /**
-     * MusicOnHold handler
+     * MusicOnHold handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -937,7 +944,7 @@ class AmiSubscriber
     }
 
     /**
-     * NewAccountCode handler
+     * NewAccountCode handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -955,7 +962,7 @@ class AmiSubscriber
     }
 
     /**
-     * NewCallerid handler
+     * NewCallerid handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -974,7 +981,7 @@ class AmiSubscriber
     }
 
     /**
-     * Newchannel handler
+     * Newchannel handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -997,7 +1004,7 @@ class AmiSubscriber
     }
 
     /**
-     * Newexten handler
+     * Newexten handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1018,7 +1025,7 @@ class AmiSubscriber
     }
 
     /**
-     * Newstate handler
+     * Newstate handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1040,7 +1047,7 @@ class AmiSubscriber
     }
 
     /**
-     * OriginateResponse handler
+     * OriginateResponse handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1063,7 +1070,7 @@ class AmiSubscriber
     }
 
     /**
-     * parkedCall handler
+     * parkedCall handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1087,7 +1094,7 @@ class AmiSubscriber
     }
 
     /**
-     * ParkedCallsComplete handler
+     * ParkedCallsComplete handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1101,7 +1108,7 @@ class AmiSubscriber
     }
 
     /**
-     * peerEntry handler
+     * peerEntry handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1126,7 +1133,7 @@ class AmiSubscriber
     }
 
     /**
-     * PeerStatus handler
+     * PeerStatus handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1144,7 +1151,7 @@ class AmiSubscriber
     }
 
     /**
-     * PeerlistComplete handler
+     * PeerlistComplete handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1158,7 +1165,7 @@ class AmiSubscriber
     }
 
     /**
-     * QueueMemberAdded handler
+     * QueueMemberAdded handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1181,7 +1188,7 @@ class AmiSubscriber
     }
 
     /**
-     * QueueMember handler
+     * QueueMember handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1202,7 +1209,7 @@ class AmiSubscriber
     }
 
     /**
-     * QueueMemberPaused handler
+     * QueueMemberPaused handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1220,7 +1227,7 @@ class AmiSubscriber
     }
 
     /**
-     * QueueMemberRemoved handler
+     * QueueMemberRemoved handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1237,7 +1244,7 @@ class AmiSubscriber
     }
 
     /**
-     * QueueMemberStatus handler
+     * QueueMemberStatus handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1259,7 +1266,7 @@ class AmiSubscriber
     }
 
     /**
-     * QueueStatusComplete handler
+     * QueueStatusComplete handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1273,7 +1280,7 @@ class AmiSubscriber
     }
 
     /**
-     * QueueSummaryComplete handler
+     * QueueSummaryComplete handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1287,7 +1294,7 @@ class AmiSubscriber
     }
 
     /**
-     * QueueSummary handler
+     * QueueSummary handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1306,7 +1313,7 @@ class AmiSubscriber
     }
 
     /**
-     * RTCPReceived handler
+     * RTCPReceived handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1332,7 +1339,7 @@ class AmiSubscriber
     }
 
     /**
-     * RTCPReceiverStat handler
+     * RTCPReceiverStat handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1352,7 +1359,7 @@ class AmiSubscriber
     }
 
     /**
-     * RTCPSent handler
+     * RTCPSent handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1378,7 +1385,7 @@ class AmiSubscriber
     }
 
     /**
-     * RTPReceiverStat handler
+     * RTPReceiverStat handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1398,7 +1405,7 @@ class AmiSubscriber
     }
 
     /**
-     * RTPSenderStat handler
+     * RTPSenderStat handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1418,7 +1425,7 @@ class AmiSubscriber
     }
 
     /**
-     * RegistrationsComplete handler
+     * RegistrationsComplete handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1432,7 +1439,7 @@ class AmiSubscriber
     }
 
     /**
-     * Rename handler
+     * Rename handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1450,7 +1457,7 @@ class AmiSubscriber
     }
 
     /**
-     * ShowDialPlanComplete handler
+     * ShowDialPlanComplete handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1468,7 +1475,7 @@ class AmiSubscriber
     }
 
     /**
-     * StatusComplete handler
+     * StatusComplete handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1482,7 +1489,7 @@ class AmiSubscriber
     }
 
     /**
-     * Status handler
+     * Status handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1511,7 +1518,7 @@ class AmiSubscriber
     }
 
     /**
-     * Transfer handler
+     * Transfer handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1534,7 +1541,7 @@ class AmiSubscriber
     }
 
     /**
-     * UnParkedCall handler
+     * UnParkedCall handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1557,7 +1564,7 @@ class AmiSubscriber
     }
 
     /**
-     * UnLink handler
+     * UnLink handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1577,7 +1584,7 @@ class AmiSubscriber
     }
 
     /**
-     * UserEvent handler
+     * UserEvent handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1593,7 +1600,7 @@ class AmiSubscriber
     }
 
     /**
-     * VarSet handler
+     * VarSet handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event
      */
@@ -1619,7 +1626,7 @@ class AmiSubscriber
     {
         foreach (self::$events as $event) {
             $method = Str::camel($event);
-            $events->listen('ami.events.' . $event, function (Event $event, array $options = []) use ($method) {
+            $events->listen('ami.events.'.$event, function (Event $event, array $options = []) use ($method) {
                 $logging = array_key_exists('logging', $options) ? $options['logging'] : false;
                 if ($logging) {
                     self::$method($event);

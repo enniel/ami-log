@@ -1,13 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateStatusCompleteTable extends Migration
 {
     /**
-     * Table name
+     * Table name.
      *
      * @var string
      */

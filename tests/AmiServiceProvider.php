@@ -2,10 +2,10 @@
 
 namespace Enniel\AmiLog\Tests;
 
-use React\SocketClient\ConnectorInterface;
-use React\EventLoop\LoopInterface;
 use Enniel\Ami\Factory;
 use Enniel\AmiLog\Tests\Factory as TestFactory;
+use React\EventLoop\LoopInterface;
+use React\SocketClient\ConnectorInterface;
 use React\Stream\Stream;
 
 class AmiServiceProvider extends \Enniel\Ami\Providers\AmiServiceProvider
@@ -20,7 +20,7 @@ class AmiServiceProvider extends \Enniel\Ami\Providers\AmiServiceProvider
     }
 
     /**
-     * Register stream
+     * Register stream.
      */
     protected function registerStream()
     {

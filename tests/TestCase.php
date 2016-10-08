@@ -3,8 +3,8 @@
 namespace Enniel\AmiLog\Tests;
 
 use Enniel\AmiLog\AmiLogServiceProvider;
-use React\EventLoop\LoopInterface;
 use Illuminate\Support\Arr;
+use React\EventLoop\LoopInterface;
 use React\Stream\Stream;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
@@ -20,7 +20,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     protected $stream;
 
     /**
-     * @var boolean
+     * @var bool
      */
     protected $running;
 
@@ -39,9 +39,9 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->loop   = $this->app[LoopInterface::class];
+        $this->loop = $this->app[LoopInterface::class];
         $this->loop->nextTick(function () {
-            if (! $this->running) {
+            if (!$this->running) {
                 $this->loop->stop();
             }
         });
@@ -71,11 +71,12 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     }
 
     /**
-     * Get model attributes
+     * Get model attributes.
      */
     protected function getModelAttribues($model)
     {
         $keys = $model->getFillable();
+
         return Arr::only($model->toArray(), $keys);
     }
 }

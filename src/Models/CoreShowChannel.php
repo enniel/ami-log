@@ -31,6 +31,6 @@ class CoreShowChannel extends Model
         'duration',
         'account_code',
         'bridged_channel',
-        'bridged_unique_id'
+        'bridged_unique_id',
     ];
 }
