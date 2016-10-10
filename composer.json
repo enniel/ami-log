@@ -19,16 +19,12 @@
         "illuminate/support": "~5.1",
         "illuminate/events": "~5.1",
         "illuminate/database": "~5.1",
-        "enniel/ami": "~1.1.0"
+        "enniel/ami": "~1.1.1"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "~2.7",
         "phpunit/phpunit": "~4.8|~5.0",
-        "react/dns": "~0.4.3",
         "react/promise": "~2.4.1",
-        "react/stream": "~0.4.4",
-        "react/event-loop": "~0.4.2",
-        "react/socket-client": "~0.4.5",
         "orchestra/testbench": "~3.1.8|~3.2.6|~3.3.2"
     },
     "autoload": {
