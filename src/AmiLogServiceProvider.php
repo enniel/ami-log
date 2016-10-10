@@ -2,7 +2,6 @@
 
 namespace Enniel\AmiLog;
 
-use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
 
 class AmiLogServiceProvider extends ServiceProvider
@@ -24,6 +23,6 @@ class AmiLogServiceProvider extends ServiceProvider
             __DIR__.'/../database/migrations/' => database_path('migrations'),
         ], 'migrations');
 
-        Event::subscribe(AmiSubscriber::class);
+        $this->app['events']->subscribe(AmiSubscriber::class);
     }
 }
