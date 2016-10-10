@@ -24,6 +24,7 @@
     "require-dev": {
         "squizlabs/php_codesniffer": "~2.7",
         "phpunit/phpunit": "~4.8|~5.0",
+        "react/dns": "~0.4.3",
         "react/promise": "~2.4.1",
         "react/stream": "~0.4.4",
         "react/event-loop": "~0.4.2",
