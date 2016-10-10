@@ -41,7 +41,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     /**
      * {@inheritdoc}
      */
-    protected function setUp()
+    public function setUp()
     {
         parent::setUp();
         $this->loop = $this->app[LoopInterface::class];
