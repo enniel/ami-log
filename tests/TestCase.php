@@ -53,7 +53,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         $this->stream = $this->app[Stream::class];
         $this->loadMigrationsFrom([
             '--database' => 'testing',
-            '--realpath' => realpath(__DIR__.'/../database/migrations'),
+            '--realpath' => __DIR__.'/../database/migrations',
         ]);
     }
 
