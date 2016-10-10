@@ -3,7 +3,6 @@
 namespace Enniel\AmiLog\Tests;
 
 use Enniel\AmiLog\AmiLogServiceProvider;
-use Illuminate\Support\Arr;
 use React\EventLoop\LoopInterface;
 use React\Stream\Stream;
 
@@ -83,6 +82,6 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     {
         $keys = $model->getFillable();
 
-        return Arr::only($model->toArray(), $keys);
+        return array_intersect_key($model->toArray(), array_flip((array) $keys));
     }
 }
