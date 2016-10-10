@@ -23,8 +23,12 @@
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "~2.7",
-        "phpunit/phpunit": "~5.5",
-        "orchestra/testbench": "~3.0"
+        "phpunit/phpunit": "~4.8|~5.0",
+        "react/promise": "~2.4.1",
+        "react/stream": "~0.4.4",
+        "react/event-loop": "~0.4.2",
+        "react/socket-client": "~0.4.5",
+        "orchestra/testbench": "~3.1"
     },
     "autoload": {
         "psr-4": {

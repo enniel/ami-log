@@ -2,7 +2,6 @@
 
 namespace Enniel\AmiLog\Tests;
 
-use Clue\React\Ami\Protocol\Event;
 use Enniel\AmiLog\Models\AgentComplete;
 use Enniel\AmiLog\Models\AgentConnect;
 use Enniel\AmiLog\Models\Bridge;
@@ -10,8 +9,6 @@ use Enniel\AmiLog\Models\Dial;
 use Enniel\AmiLog\Models\FullyBooted;
 use Enniel\AmiLog\Models\Join;
 use Enniel\AmiLog\Models\Link;
-use Illuminate\Support\Facades\Event as Emitter;
-use React\Stream\Stream;
 
 class EventTest extends TestCase
 {
@@ -86,7 +83,7 @@ class EventTest extends TestCase
                 'Uniqueid'          => '1321511811.113',
             ],
         ];
-        Emitter::listen('ami.listen.started', function () use ($messages) {
+        $this->events->listen('ami.listen.started', function () use ($messages) {
             $this->assertTrue(true);
             $this->stream->emit('data', ["Asterisk Call Manager/1.3\r\n"]);
             foreach ($messages as $lines) {

@@ -24,6 +24,11 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
      */
     protected $running;
 
+    /**
+     * @var \Illuminate\Events\Dispatcher
+     */
+    protected $events;
+
     //
     protected function getPackageProviders($app)
     {
@@ -40,6 +45,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     {
         parent::setUp();
         $this->loop = $this->app[LoopInterface::class];
+        $this->events = $this->app['events'];
         $this->loop->nextTick(function () {
             if (!$this->running) {
                 $this->loop->stop();
