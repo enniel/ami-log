@@ -1439,6 +1439,24 @@ class AmiSubscriber
     }
 
     /**
+     * Registry handler.
+     *
+     * @param Clue\React\Ami\Protocol\Event $event
+     */
+    public function registry(Event $event)
+    {
+        $map = [
+            'Privilege'   => 'privilege',
+            'ChannelType' => 'channel_type',
+            'Username'    => 'username',
+            'Domain'      => 'domain',
+            'Status'      => 'status',
+        ];
+        $params = self::params($event, $map);
+        Registry::create($params);
+    }
+
+    /**
      * Rename handler.
      *
      * @param Clue\React\Ami\Protocol\Event $event

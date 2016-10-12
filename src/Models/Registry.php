@@ -17,7 +17,9 @@ class Registry extends Model
      * @var array
      */
     protected $fillable = [
-        'channel',
+        'privilege',
+        'channel_type',
+        'username',
         'domain',
         'status',
     ];

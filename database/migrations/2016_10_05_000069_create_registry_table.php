@@ -24,7 +24,9 @@ class CreateRegistryTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->timestamps();
-            $table->string('channel')->nullable();
+            $table->string('privilege')->nullable();
+            $table->string('channel_type')->nullable();
+            $table->string('username')->nullable();
             $table->string('domain')->nullable();
             $table->string('status')->nullable();
         });
