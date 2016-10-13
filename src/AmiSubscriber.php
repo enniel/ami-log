@@ -12,6 +12,7 @@ use Enniel\AmiLog\Models\Agents;
 use Enniel\AmiLog\Models\AGIExec;
 use Enniel\AmiLog\Models\AsyncAGI;
 use Enniel\AmiLog\Models\Bridge;
+use Enniel\AmiLog\Models\CDR;
 use Enniel\AmiLog\Models\CEL;
 use Enniel\AmiLog\Models\ChannelUpdate;
 use Enniel\AmiLog\Models\CoreShowChannel;
@@ -95,6 +96,7 @@ class AmiSubscriber
         'agents',
         'async_agi',
         'bridge',
+        'cdr',
         'cel',
         'channel_update',
         'core_show_channel',
@@ -370,6 +372,40 @@ class AmiSubscriber
         ];
         $params = self::params($event, $map);
         Bridge::create($params);
+    }
+
+    /**
+     * CDR handler.
+     *
+     * @param Clue\React\Ami\Protocol\Event $event
+     */
+    public function cdr(Event $event)
+    {
+        $map = [
+            'Privilege'          => 'privilege',
+            'AccountCode'        => 'account_code',
+            'Source'             => 'source',
+            'Destination'        => 'destination',
+            'DestinationContext' => 'destination_context',
+            'CallerID'           => 'caller_id',
+            'Channel'            => 'channel',
+            'DestinationChannel' => 'destination_channel',
+            'LastApplication'    => 'last_application',
+            'LastData'           => 'last_data',
+            'StartTime'          => 'start_time',
+            'AnswerTime'         => 'answer_time',
+            'EndTime'            => 'end_time',
+            'Duration'           => 'duration',
+            'BillableSeconds'    => 'billable_seconds',
+            'Disposition'        => 'disposition',
+            'AMAFlags'           => 'ama_flags',
+            'UniqueID'           => 'unique_id',
+            'UserField'          => 'user_field',
+            'Rate'               => 'rate',
+            'Carrier'            => 'carrier',
+        ];
+        $params = self::params($event, $map);
+        CDR::create($params);
     }
 
     /**

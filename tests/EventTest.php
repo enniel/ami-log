@@ -5,6 +5,7 @@ namespace Enniel\AmiLog\Tests;
 use Enniel\AmiLog\Models\AgentComplete;
 use Enniel\AmiLog\Models\AgentConnect;
 use Enniel\AmiLog\Models\Bridge;
+use Enniel\AmiLog\Models\CDR;
 use Enniel\AmiLog\Models\Dial;
 use Enniel\AmiLog\Models\FullyBooted;
 use Enniel\AmiLog\Models\Join;
@@ -38,6 +39,30 @@ class EventTest extends TestCase
                 'HoldTime'   => '10',
                 'TalkTime'   => '7',
                 'Reason'     => 'caller',
+            ],
+            [
+                'Event'              => 'CDR',
+                'Privilege'          => 'cdr,all',
+                'AccountCode'        => '',
+                'Source'             => '',
+                'Destination'        => '177',
+                'DestinationContext' => 'test',
+                'CallerID'           => '',
+                'Channel'            => 'Console/dsp',
+                'DestinationChannel' => '',
+                'LastApplication'    => 'Hangup',
+                'LastData'           => '',
+                'StartTime'          => '2014-05-23 08:29:21',
+                'AnswerTime'         => '2014-05-23 08:29:21',
+                'EndTime'            => '2014-08-25 08:29:21',
+                'Duration'           => '0',
+                'BillableSeconds'    => '0',
+                'Disposition'        => 'ANSWERED',
+                'AMAFlags'           => 'DOCUMENTATION',
+                'UniqueID'           => '1383680051.3',
+                'UserField'          => '',
+                'Rate'               => '0.03',
+                'Carrier'            => 'BВ&С',
             ],
             [
                 'Event'       => 'Bridge',
@@ -118,6 +143,31 @@ class EventTest extends TestCase
                 'hold_time'   => '10',
                 'talk_time'   => '7',
                 'reason'      => 'caller',
+            ]);
+        });
+        CDR::created(function ($model) {
+            $this->assertEquals($this->getModelAttribues($model), [
+                'privilege'           => 'cdr,all',
+                'account_code'        => '',
+                'source'              => '',
+                'destination'         => '177',
+                'destination_context' => 'test',
+                'caller_id'           => '',
+                'channel'             => 'Console/dsp',
+                'destination_channel' => '',
+                'last_application'    => 'Hangup',
+                'last_data'           => '',
+                'start_time'          => '2014-05-23 08:29:21',
+                'answer_time'         => '2014-05-23 08:29:21',
+                'end_time'            => '2014-08-25 08:29:21',
+                'duration'            => '0',
+                'billable_seconds'    => '0',
+                'disposition'         => 'ANSWERED',
+                'ama_flags'           => 'DOCUMENTATION',
+                'unique_id'           => '1383680051.3',
+                'user_field'          => '',
+                'rate'                => '0.03',
+                'carrier'             => 'BВ&С',
             ]);
         });
         Bridge::created(function ($model) {
