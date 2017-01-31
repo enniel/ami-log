@@ -196,12 +196,12 @@ class AmiSubscriber
     public function agiExec(Event $event)
     {
         $map = [
-            'Privilege'  => 'privilege',
-            'SubEvent'   => 'sub_event',
-            'Channel'    => 'channel',
-            'Command'    => 'command',
-            'CommandId'  => 'command_id',
-            'Result'     => 'result',
+            'Privilege' => 'privilege',
+            'SubEvent' => 'sub_event',
+            'Channel' => 'channel',
+            'Command' => 'command',
+            'CommandId' => 'command_id',
+            'Result' => 'result',
             'ResultCode' => 'result_code',
         ];
         $params = self::params($event, $map);
@@ -216,20 +216,20 @@ class AmiSubscriber
     public function agentCalled(Event $event)
     {
         $map = [
-            'Privilege'          => 'privilege',
-            'Queue'              => 'queue',
-            'AgentCalled'        => 'agent_called',
-            'AgentName'          => 'agent_name',
-            'ChannelCalling'     => 'channel_calling',
+            'Privilege' => 'privilege',
+            'Queue' => 'queue',
+            'AgentCalled' => 'agent_called',
+            'AgentName' => 'agent_name',
+            'ChannelCalling' => 'channel_calling',
             'DestinationChannel' => 'destination_channel',
-            'CallerIDNum'        => 'caller_id_num',
-            'CallerIDName'       => 'caller_id_name',
-            'ConnectedLineNum'   => 'connected_line_num',
-            'ConnectedLineName'  => 'connected_line_name',
-            'Context'            => 'context',
-            'Extension'          => 'extension',
-            'Priority'           => 'priority',
-            'Uniqueid'           => 'unique_id',
+            'CallerIDNum' => 'caller_id_num',
+            'CallerIDName' => 'caller_id_name',
+            'ConnectedLineNum' => 'connected_line_num',
+            'ConnectedLineName' => 'connected_line_name',
+            'Context' => 'context',
+            'Extension' => 'extension',
+            'Priority' => 'priority',
+            'Uniqueid' => 'unique_id',
         ];
         $params = self::params($event, $map);
         AgentCalled::create($params);
@@ -243,15 +243,15 @@ class AmiSubscriber
     public function agentConnect(Event $event)
     {
         $map = [
-            'Privilege'      => 'privilege',
-            'HoldTime'       => 'hold_time',
+            'Privilege' => 'privilege',
+            'HoldTime' => 'hold_time',
             'BridgedChannel' => 'bridged_channel',
-            'RingTime'       => 'ring_time',
-            'Member'         => 'member',
-            'MemberName'     => 'member_name',
-            'Queue'          => 'queue',
-            'UniqueID'       => 'unique_id',
-            'Channel'        => 'channel',
+            'RingTime' => 'ring_time',
+            'Member' => 'member',
+            'MemberName' => 'member_name',
+            'Queue' => 'queue',
+            'UniqueID' => 'unique_id',
+            'Channel' => 'channel',
         ];
         $params = self::params($event, $map);
         AgentConnect::create($params);
@@ -265,15 +265,15 @@ class AmiSubscriber
     public function agentComplete(Event $event)
     {
         $map = [
-            'Privilege'  => 'privilege',
-            'Queue'      => 'queue',
-            'Uniqueid'   => 'unique_id',
-            'Channel'    => 'channel',
-            'Member'     => 'member',
+            'Privilege' => 'privilege',
+            'Queue' => 'queue',
+            'Uniqueid' => 'unique_id',
+            'Channel' => 'channel',
+            'Member' => 'member',
             'MemberName' => 'member_name',
-            'HoldTime'   => 'hold_time',
-            'TalkTime'   => 'talk_time',
-            'Reason'     => 'reason',
+            'HoldTime' => 'hold_time',
+            'TalkTime' => 'talk_time',
+            'Reason' => 'reason',
         ];
         $params = self::params($event, $map);
         AgentComplete::create($params);
@@ -288,9 +288,9 @@ class AmiSubscriber
     {
         $map = [
             'Privilege' => 'privilege',
-            'Agent'     => 'agent',
-            'UniqueID'  => 'unique_id',
-            'Channel'   => 'channel',
+            'Agent' => 'agent',
+            'UniqueID' => 'unique_id',
+            'Channel' => 'channel',
         ];
         $params = self::params($event, $map);
         AgentLogin::create($params);
@@ -305,8 +305,8 @@ class AmiSubscriber
     {
         $map = [
             'Privilege' => 'privilege',
-            'Agent'     => 'agent',
-            'UniqueID'  => 'unique_id',
+            'Agent' => 'agent',
+            'UniqueID' => 'unique_id',
             'Logintime' => 'login_time',
         ];
         $params = self::params($event, $map);
@@ -321,12 +321,12 @@ class AmiSubscriber
     public function agents(Event $event)
     {
         $map = [
-            'Status'           => 'status',
-            'Agent'            => 'agent',
-            'Name'             => 'name',
-            'LoggedInChan'     => 'logged_in_chan',
-            'LoggedInTime'     => 'logged_in_time',
-            'TalkingTo'        => 'talking_to',
+            'Status' => 'status',
+            'Agent' => 'agent',
+            'Name' => 'name',
+            'LoggedInChan' => 'logged_in_chan',
+            'LoggedInTime' => 'logged_in_time',
+            'TalkingTo' => 'talking_to',
             'TalkingToChannel' => 'talking_to_channel',
         ];
         $params = self::params($event, $map);
@@ -342,10 +342,10 @@ class AmiSubscriber
     {
         $map = [
             'Privilege' => 'privilege',
-            'SubEvent'  => 'sub_event',
-            'Channel'   => 'channel',
-            'Env'       => 'environment',
-            'Result'    => 'result',
+            'SubEvent' => 'sub_event',
+            'Channel' => 'channel',
+            'Env' => 'environment',
+            'Result' => 'result',
             'CommandId' => 'command_id',
         ];
         $params = self::params($event, $map);
@@ -360,15 +360,15 @@ class AmiSubscriber
     public function bridge(Event $event)
     {
         $map = [
-            'Privilege'   => 'privilege',
+            'Privilege' => 'privilege',
             'Bridgestate' => 'bridge_state',
-            'Bridgetype'  => 'bridge_type',
-            'Channel1'    => 'channel_first',
-            'Channel2'    => 'channel_second',
-            'CallerID1'   => 'caller_id_first',
-            'CallerID2'   => 'caller_id_second',
-            'UniqueID1'   => 'unique_id_first',
-            'UniqueID2'   => 'unique_id_second',
+            'Bridgetype' => 'bridge_type',
+            'Channel1' => 'channel_first',
+            'Channel2' => 'channel_second',
+            'CallerID1' => 'caller_id_first',
+            'CallerID2' => 'caller_id_second',
+            'UniqueID1' => 'unique_id_first',
+            'UniqueID2' => 'unique_id_second',
         ];
         $params = self::params($event, $map);
         Bridge::create($params);
@@ -382,27 +382,27 @@ class AmiSubscriber
     public function cdr(Event $event)
     {
         $map = [
-            'Privilege'          => 'privilege',
-            'AccountCode'        => 'account_code',
-            'Source'             => 'source',
-            'Destination'        => 'destination',
+            'Privilege' => 'privilege',
+            'AccountCode' => 'account_code',
+            'Source' => 'source',
+            'Destination' => 'destination',
             'DestinationContext' => 'destination_context',
-            'CallerID'           => 'caller_id',
-            'Channel'            => 'channel',
+            'CallerID' => 'caller_id',
+            'Channel' => 'channel',
             'DestinationChannel' => 'destination_channel',
-            'LastApplication'    => 'last_application',
-            'LastData'           => 'last_data',
-            'StartTime'          => 'start_time',
-            'AnswerTime'         => 'answer_time',
-            'EndTime'            => 'end_time',
-            'Duration'           => 'duration',
-            'BillableSeconds'    => 'billable_seconds',
-            'Disposition'        => 'disposition',
-            'AMAFlags'           => 'ama_flags',
-            'UniqueID'           => 'unique_id',
-            'UserField'          => 'user_field',
-            'Rate'               => 'rate',
-            'Carrier'            => 'carrier',
+            'LastApplication' => 'last_application',
+            'LastData' => 'last_data',
+            'StartTime' => 'start_time',
+            'AnswerTime' => 'answer_time',
+            'EndTime' => 'end_time',
+            'Duration' => 'duration',
+            'BillableSeconds' => 'billable_seconds',
+            'Disposition' => 'disposition',
+            'AMAFlags' => 'ama_flags',
+            'UniqueID' => 'unique_id',
+            'UserField' => 'user_field',
+            'Rate' => 'rate',
+            'Carrier' => 'carrier',
         ];
         $params = self::params($event, $map);
         CDR::create($params);
@@ -416,29 +416,29 @@ class AmiSubscriber
     public function cel(Event $event)
     {
         $map = [
-            'AMAFlags'      => 'ama_flags',
-            'AccountCode'   => 'account_code',
-            'AppData'       => 'app_data',
-            'Application'   => 'application',
-            'CallerIDani'   => 'caller_id_ani',
-            'CallerIDdnid'  => 'caller_id_dnid',
-            'CallerIDname'  => 'caller_id_name',
-            'CallerIDnum'   => 'caller_id_num',
+            'AMAFlags' => 'ama_flags',
+            'AccountCode' => 'account_code',
+            'AppData' => 'app_data',
+            'Application' => 'application',
+            'CallerIDani' => 'caller_id_ani',
+            'CallerIDdnid' => 'caller_id_dnid',
+            'CallerIDname' => 'caller_id_name',
+            'CallerIDnum' => 'caller_id_num',
             'CallerIDrdnis' => 'caller_id_rdnis',
-            'Channel'       => 'channel',
-            'Context'       => 'context',
-            'Event'         => 'event',
-            'EventName'     => 'event_name',
-            'EventTime'     => 'event_time',
-            'Exten'         => 'exten',
-            'Extra'         => 'extra',
-            'LinkedID'      => 'linked_id',
-            'Peer'          => 'peer',
-            'PeerAccount'   => 'peer_account',
-            'Privilege'     => 'privilege',
-            'Timestamp'     => 'timestamp',
-            'UniqueID'      => 'unique_id',
-            'Userfield'     => 'user_field',
+            'Channel' => 'channel',
+            'Context' => 'context',
+            'Event' => 'event',
+            'EventName' => 'event_name',
+            'EventTime' => 'event_time',
+            'Exten' => 'exten',
+            'Extra' => 'extra',
+            'LinkedID' => 'linked_id',
+            'Peer' => 'peer',
+            'PeerAccount' => 'peer_account',
+            'Privilege' => 'privilege',
+            'Timestamp' => 'timestamp',
+            'UniqueID' => 'unique_id',
+            'Userfield' => 'user_field',
         ];
         $params = self::params($event, $map);
         CEL::create($params);
@@ -452,12 +452,12 @@ class AmiSubscriber
     public function channelUpdate(Event $event)
     {
         $map = [
-            'Privilege'      => 'privilege',
-            'Channel'        => 'channel',
-            'ChannelType'    => 'channel_type',
-            'SIPcallid'      => 'sip_call_id',
+            'Privilege' => 'privilege',
+            'Channel' => 'channel',
+            'ChannelType' => 'channel_type',
+            'SIPcallid' => 'sip_call_id',
             'SIPfullcontact' => 'sip_full_contact',
-            'UniqueID'       => 'unique_id',
+            'UniqueID' => 'unique_id',
         ];
         $params = self::params($event, $map);
         ChannelUpdate::create($params);
@@ -471,21 +471,21 @@ class AmiSubscriber
     public function coreShowChannel(Event $event)
     {
         $map = [
-            'Privilege'        => 'privilege',
-            'Channel'          => 'channel',
-            'UniqueID'         => 'unique_id',
-            'Context'          => 'context',
-            'Extension'        => 'extension',
-            'Priority'         => 'priority',
-            'ChannelState'     => 'channel_state',
+            'Privilege' => 'privilege',
+            'Channel' => 'channel',
+            'UniqueID' => 'unique_id',
+            'Context' => 'context',
+            'Extension' => 'extension',
+            'Priority' => 'priority',
+            'ChannelState' => 'channel_state',
             'ChannelStateDesc' => 'channel_state_desc',
-            'Application'      => 'application',
-            'ApplicationData'  => 'application_data',
-            'CallerIDNum'      => 'caller_id_num',
-            'Duration'         => 'duration',
-            'AccountCode'      => 'account_code',
-            'BridgedChannel'   => 'bridged_channel',
-            'BridgedUniqueID'  => 'bridged_unique_id',
+            'Application' => 'application',
+            'ApplicationData' => 'application_data',
+            'CallerIDNum' => 'caller_id_num',
+            'Duration' => 'duration',
+            'AccountCode' => 'account_code',
+            'BridgedChannel' => 'bridged_channel',
+            'BridgedUniqueID' => 'bridged_unique_id',
         ];
         $params = self::params($event, $map);
         CoreShowChannel::create($params);
@@ -527,12 +527,12 @@ class AmiSubscriber
     public function dahdiShowChannels(Event $event)
     {
         $map = [
-            'Channel'        => 'channel',
-            'Signalling'     => 'signalling',
+            'Channel' => 'channel',
+            'Signalling' => 'signalling',
             'SignallingCode' => 'signalling_code',
-            'Context'        => 'context',
-            'DND'            => 'dnd',
-            'Alarm'          => 'alarm',
+            'Context' => 'context',
+            'DND' => 'dnd',
+            'Alarm' => 'alarm',
         ];
         $params = self::params($event, $map);
         DAHDIShowChannels::create($params);
@@ -547,8 +547,8 @@ class AmiSubscriber
     {
         $map = [
             'Family' => 'family',
-            'Key'    => 'key',
-            'Val'    => 'val',
+            'Key' => 'key',
+            'Val' => 'val',
         ];
         $params = self::params($event, $map);
         DBGetResponse::create($params);
@@ -563,12 +563,12 @@ class AmiSubscriber
     {
         $map = [
             'Privilege' => 'privilege',
-            'Channel'   => 'channel',
-            'Digit'     => 'digit',
+            'Channel' => 'channel',
+            'Digit' => 'digit',
             'Direction' => 'direction',
-            'End'       => 'end',
-            'Begin'     => 'begin',
-            'UniqueID'  => 'unique_id',
+            'End' => 'end',
+            'Begin' => 'begin',
+            'UniqueID' => 'unique_id',
         ];
         $params = self::params($event, $map);
         DTMF::create($params);
@@ -582,16 +582,16 @@ class AmiSubscriber
     public function dial(Event $event)
     {
         $map = [
-            'Privilege'    => 'privilege',
-            'SubEvent'     => 'sub_event',
-            'Channel'      => 'channel',
-            'Destination'  => 'destination',
-            'CallerIDNum'  => 'caller_id_num',
+            'Privilege' => 'privilege',
+            'SubEvent' => 'sub_event',
+            'Channel' => 'channel',
+            'Destination' => 'destination',
+            'CallerIDNum' => 'caller_id_num',
             'CallerIDName' => 'caller_id_name',
-            'UniqueID'     => 'unique_id',
+            'UniqueID' => 'unique_id',
             'DestUniqueID' => 'dest_unique_id',
-            'DialString'   => 'dial_string',
-            'DialStatus'   => 'dial_status',
+            'DialString' => 'dial_string',
+            'DialStatus' => 'dial_status',
         ];
         $params = self::params($event, $map);
         Dial::create($params);
@@ -605,65 +605,65 @@ class AmiSubscriber
     public function dongleDeviceEntry(Event $event)
     {
         $map = [
-            'Device'                => 'device',
-            'AudioSetting'          => 'audio_setting',
-            'DataSetting'           => 'data_setting',
-            'IMEISetting'           => 'imei_setting',
-            'IMSISetting'           => 'imsi_setting',
-            'ChannelLanguage'       => 'channel_language',
-            'Context'               => 'context',
-            'Exten'                 => 'exten',
-            'Group'                 => 'group',
-            'RXGain'                => 'rx_gain',
-            'TXGain'                => 'tx_gain',
-            'U2DIAG'                => 'u2diag',
-            'UseCallingPres'        => 'use_calling_pres',
-            'DefaultCallingPres'    => 'default_calling_pres',
-            'AutoDeleteSMS'         => 'auto_delete_sms',
-            'DisableSMS'            => 'disable_sms',
-            'ResetDongle'           => 'reset_dongle',
-            'SMSPDU'                => 'sms_pdu',
-            'CallWaitingSetting'    => 'call_waiting_setting',
-            'DTMF'                  => 'dtmf',
-            'MinimalDTMFGap'        => 'minimal_dtmf_gap',
-            'MinimalDTMFDuration'   => 'minimal_dtmf_duration',
-            'MinimalDTMFInterval'   => 'minimal_dtmf_interval',
-            'State'                 => 'state',
-            'AudioState'            => 'audio_state',
-            'DataState'             => 'data_state',
-            'Voice'                 => 'voice',
-            'SMS'                   => 'sms',
-            'Manufacturer'          => 'manufacturer',
-            'Model'                 => 'model',
-            'Firmware'              => 'firmware',
-            'IMEIState'             => 'imei_state',
-            'IMSIState'             => 'imsi_state',
+            'Device' => 'device',
+            'AudioSetting' => 'audio_setting',
+            'DataSetting' => 'data_setting',
+            'IMEISetting' => 'imei_setting',
+            'IMSISetting' => 'imsi_setting',
+            'ChannelLanguage' => 'channel_language',
+            'Context' => 'context',
+            'Exten' => 'exten',
+            'Group' => 'group',
+            'RXGain' => 'rx_gain',
+            'TXGain' => 'tx_gain',
+            'U2DIAG' => 'u2diag',
+            'UseCallingPres' => 'use_calling_pres',
+            'DefaultCallingPres' => 'default_calling_pres',
+            'AutoDeleteSMS' => 'auto_delete_sms',
+            'DisableSMS' => 'disable_sms',
+            'ResetDongle' => 'reset_dongle',
+            'SMSPDU' => 'sms_pdu',
+            'CallWaitingSetting' => 'call_waiting_setting',
+            'DTMF' => 'dtmf',
+            'MinimalDTMFGap' => 'minimal_dtmf_gap',
+            'MinimalDTMFDuration' => 'minimal_dtmf_duration',
+            'MinimalDTMFInterval' => 'minimal_dtmf_interval',
+            'State' => 'state',
+            'AudioState' => 'audio_state',
+            'DataState' => 'data_state',
+            'Voice' => 'voice',
+            'SMS' => 'sms',
+            'Manufacturer' => 'manufacturer',
+            'Model' => 'model',
+            'Firmware' => 'firmware',
+            'IMEIState' => 'imei_state',
+            'IMSIState' => 'imsi_state',
             'GSMRegistrationStatus' => 'gsm_registration_status',
-            'RSSI'                  => 'rssi',
-            'Mode'                  => 'mode',
-            'Submode'               => 'sub_mode',
-            'ProviderName'          => 'provider_name',
-            'LocationAreaCode'      => 'location_area_code',
-            'CellID'                => 'cell_id',
-            'SubscriberNumber'      => 'subscriber_number',
-            'SMSServiceCenter'      => 'sms_service_center',
-            'UseUCS2Encoding'       => 'use_ucs2_encoding',
-            'USSDUse7BitEncoding'   => 'ussd_use_7bit_encoding',
-            'USSDUseUCS2Decoding'   => 'ussd_use_ucs2_decoding',
-            'TasksInQueue'          => 'tasks_in_queue',
-            'CommandsInQueue'       => 'commands_in_queue',
-            'CallWaitingState'      => 'call_waiting_state',
-            'CurrentDeviceState'    => 'carrent_device_state',
-            'DesiredDeviceState'    => 'desired_device_state',
-            'CallsChannels'         => 'calls_channels',
-            'Active'                => 'active',
-            'Held'                  => 'held',
-            'Dialing'               => 'dialing',
-            'Alerting'              => 'alerting',
-            'Incoming'              => 'incoming',
-            'Waiting'               => 'waiting',
-            'Releasing'             => 'releasing',
-            'Initializing'          => 'initializing',
+            'RSSI' => 'rssi',
+            'Mode' => 'mode',
+            'Submode' => 'sub_mode',
+            'ProviderName' => 'provider_name',
+            'LocationAreaCode' => 'location_area_code',
+            'CellID' => 'cell_id',
+            'SubscriberNumber' => 'subscriber_number',
+            'SMSServiceCenter' => 'sms_service_center',
+            'UseUCS2Encoding' => 'use_ucs2_encoding',
+            'USSDUse7BitEncoding' => 'ussd_use_7bit_encoding',
+            'USSDUseUCS2Decoding' => 'ussd_use_ucs2_decoding',
+            'TasksInQueue' => 'tasks_in_queue',
+            'CommandsInQueue' => 'commands_in_queue',
+            'CallWaitingState' => 'call_waiting_state',
+            'CurrentDeviceState' => 'carrent_device_state',
+            'DesiredDeviceState' => 'desired_device_state',
+            'CallsChannels' => 'calls_channels',
+            'Active' => 'active',
+            'Held' => 'held',
+            'Dialing' => 'dialing',
+            'Alerting' => 'alerting',
+            'Incoming' => 'incoming',
+            'Waiting' => 'waiting',
+            'Releasing' => 'releasing',
+            'Initializing' => 'initializing',
         ];
         $params = self::params($event, $map);
         DongleDeviceEntry::create($params);
@@ -678,8 +678,8 @@ class AmiSubscriber
     {
         $map = [
             'Privilege' => 'privilege',
-            'Device'    => 'device',
-            'Message'   => 'message',
+            'Device' => 'device',
+            'Message' => 'message',
         ];
         $params = self::params($event, $map);
         DongleNewCUSD::create($params);
@@ -694,8 +694,8 @@ class AmiSubscriber
     {
         $map = [
             'Privilege' => 'privilege',
-            'Device'    => 'device',
-            'Message'   => 'message',
+            'Device' => 'device',
+            'Message' => 'message',
         ];
         $params = self::params($event, $map);
         DongleNewUSSDBase64::create($params);
@@ -710,7 +710,7 @@ class AmiSubscriber
     {
         $map = [
             'Privilege' => 'privilege',
-            'Device'    => 'device',
+            'Device' => 'device',
             'LineCount' => 'line_count',
         ];
         $params = self::params($event, $map);
@@ -726,9 +726,9 @@ class AmiSubscriber
     {
         $map = [
             'Privilege' => 'privilege',
-            'Device'    => 'device',
-            'Id'        => 'sms_id',
-            'Status'    => 'status',
+            'Device' => 'device',
+            'Id' => 'sms_id',
+            'Status' => 'status',
         ];
         $params = self::params($event, $map);
         DongleSMSStatus::create($params);
@@ -757,8 +757,8 @@ class AmiSubscriber
     {
         $map = [
             'Privilege' => 'privilege',
-            'Device'    => 'device',
-            'Status'    => 'status',
+            'Device' => 'device',
+            'Status' => 'status',
         ];
         $params = self::params($event, $map);
         DongleStatus::create($params);
@@ -773,9 +773,9 @@ class AmiSubscriber
     {
         $map = [
             'Privilege' => 'privilege',
-            'Device'    => 'device',
-            'Id'        => 'ussd_id',
-            'Status'    => 'status',
+            'Device' => 'device',
+            'Id' => 'ussd_id',
+            'Status' => 'status',
         ];
         $params = self::params($event, $map);
         DongleUSSDStatus::create($params);
@@ -790,10 +790,10 @@ class AmiSubscriber
     {
         $map = [
             'Privilege' => 'privilege',
-            'Status'    => 'status',
-            'Exten'     => 'extension',
-            'Context'   => 'context',
-            'Hint'      => 'hint',
+            'Status' => 'status',
+            'Exten' => 'extension',
+            'Context' => 'context',
+            'Hint' => 'hint',
         ];
         $params = self::params($event, $map);
         ExtensionStatus::create($params);
@@ -808,7 +808,7 @@ class AmiSubscriber
     {
         $map = [
             'Privilege' => 'privilege',
-            'Status'    => 'status',
+            'Status' => 'status',
         ];
         $params = self::params($event, $map);
         FullyBooted::create($params);
@@ -822,13 +822,13 @@ class AmiSubscriber
     public function hangup(Event $event)
     {
         $map = [
-            'Privilege'    => 'privilege',
-            'Channel'      => 'channel',
-            'CallerIDNum'  => 'caller_id_num',
+            'Privilege' => 'privilege',
+            'Channel' => 'channel',
+            'CallerIDNum' => 'caller_id_num',
             'CallerIDName' => 'caller_id_name',
-            'UniqueID'     => 'unique_id',
-            'Cause'        => 'cause',
-            'Cause-txt'    => 'cause_text',
+            'UniqueID' => 'unique_id',
+            'Cause' => 'cause',
+            'Cause-txt' => 'cause_text',
         ];
         $params = self::params($event, $map);
         Hangup::create($params);
@@ -843,9 +843,9 @@ class AmiSubscriber
     {
         $map = [
             'Privilege' => 'privilege',
-            'Channel'   => 'channel',
-            'Status'    => 'status',
-            'UniqueID'  => 'unique_id',
+            'Channel' => 'channel',
+            'Status' => 'status',
+            'UniqueID' => 'unique_id',
         ];
         $params = self::params($event, $map);
         Hold::create($params);
@@ -860,8 +860,8 @@ class AmiSubscriber
     {
         $map = [
             'Privilege' => 'privilege',
-            'Account'   => 'account',
-            'Packet'    => 'packet',
+            'Account' => 'account',
+            'Packet' => 'packet',
         ];
         $params = self::params($event, $map);
         JabberEvent::create($params);
@@ -875,16 +875,16 @@ class AmiSubscriber
     public function join(Event $event)
     {
         $map = [
-            'Privilege'         => 'privilege',
-            'Channel'           => 'channel',
-            'Count'             => 'count',
-            'Queue'             => 'queue',
-            'Position'          => 'position',
-            'CallerIDNum'       => 'caller_id_num',
-            'CallerIDName'      => 'caller_id_name',
-            'ConnectedLineNum'  => 'connected_line_num',
+            'Privilege' => 'privilege',
+            'Channel' => 'channel',
+            'Count' => 'count',
+            'Queue' => 'queue',
+            'Position' => 'position',
+            'CallerIDNum' => 'caller_id_num',
+            'CallerIDName' => 'caller_id_name',
+            'ConnectedLineNum' => 'connected_line_num',
             'ConnectedLineName' => 'connected_line_name',
-            'UniqueID'          => 'unique_id',
+            'UniqueID' => 'unique_id',
         ];
         $params = self::params($event, $map);
         Join::create($params);
@@ -899,10 +899,10 @@ class AmiSubscriber
     {
         $map = [
             'Privilege' => 'privilege',
-            'Channel'   => 'channel',
-            'Count'     => 'count',
-            'Queue'     => 'queue',
-            'UniqueID'  => 'unique_id',
+            'Channel' => 'channel',
+            'Count' => 'count',
+            'Queue' => 'queue',
+            'UniqueID' => 'unique_id',
         ];
         $params = self::params($event, $map);
         Leave::create($params);
@@ -916,12 +916,12 @@ class AmiSubscriber
     public function listDialPlan(Event $event)
     {
         $map = [
-            'Context'        => 'context',
-            'Extension'      => 'extension',
-            'Priority'       => 'priority',
-            'Application'    => 'application',
-            'AppData'        => 'app_data',
-            'Registrar'      => 'registrar',
+            'Context' => 'context',
+            'Extension' => 'extension',
+            'Priority' => 'priority',
+            'Application' => 'application',
+            'AppData' => 'app_data',
+            'Registrar' => 'registrar',
             'IncludeContext' => 'include_context',
         ];
         $params = self::params($event, $map);
@@ -936,10 +936,10 @@ class AmiSubscriber
     public function masquerade(Event $event)
     {
         $map = [
-            'Privilege'     => 'privilege',
-            'Clone'         => 'clone',
-            'CloneState'    => 'clone_state',
-            'Original'      => 'original',
+            'Privilege' => 'privilege',
+            'Clone' => 'clone',
+            'CloneState' => 'clone_state',
+            'Original' => 'original',
             'OriginalState' => 'original_state',
         ];
         $params = self::params($event, $map);
@@ -955,8 +955,8 @@ class AmiSubscriber
     {
         $map = [
             'Privilege' => 'privilege',
-            'Mailbox'   => 'mailbox',
-            'Waiting'   => 'waiting',
+            'Mailbox' => 'mailbox',
+            'Waiting' => 'waiting',
         ];
         $params = self::params($event, $map);
         MessageWaiting::create($params);
@@ -971,9 +971,9 @@ class AmiSubscriber
     {
         $map = [
             'Privilege' => 'privilege',
-            'Channel'   => 'channel',
-            'State'     => 'state',
-            'UniqueID'  => 'unique_id',
+            'Channel' => 'channel',
+            'State' => 'state',
+            'UniqueID' => 'unique_id',
         ];
         $params = self::params($event, $map);
         MusicOnHold::create($params);
@@ -987,10 +987,10 @@ class AmiSubscriber
     public function newAccountCode(Event $event)
     {
         $map = [
-            'Privilege'      => 'privilege',
-            'Channel'        => 'channel',
-            'UniqueID'       => 'unique_id',
-            'AccountCode'    => 'account_code',
+            'Privilege' => 'privilege',
+            'Channel' => 'channel',
+            'UniqueID' => 'unique_id',
+            'AccountCode' => 'account_code',
             'OldAccountCode' => 'old_account_code',
         ];
         $params = self::params($event, $map);
@@ -1005,11 +1005,11 @@ class AmiSubscriber
     public function newCallerId(Event $event)
     {
         $map = [
-            'Privilege'       => 'privilege',
-            'Channel'         => 'channel',
-            'CallerIDNum'     => 'caller_id_num',
-            'CallerIDName'    => 'caller_id_name',
-            'UniqueID'        => 'unique_id',
+            'Privilege' => 'privilege',
+            'Channel' => 'channel',
+            'CallerIDNum' => 'caller_id_num',
+            'CallerIDName' => 'caller_id_name',
+            'UniqueID' => 'unique_id',
             'CID-CallingPres' => 'cid_calling_pres',
         ];
         $params = self::params($event, $map);
@@ -1024,16 +1024,16 @@ class AmiSubscriber
     public function newChannel(Event $event)
     {
         $map = [
-            'Privilege'        => 'privilege',
-            'Channel'          => 'channel',
-            'ChannelState'     => 'channel_state',
+            'Privilege' => 'privilege',
+            'Channel' => 'channel',
+            'ChannelState' => 'channel_state',
             'ChannelStateDesc' => 'channel_state_desc',
-            'CallerIDNum'      => 'caller_id_num',
-            'CallerIDName'     => 'caller_id_name',
-            'UniqueID'         => 'unique_id',
-            'AccountCode'      => 'account_code',
-            'Context'          => 'context',
-            'Exten'            => 'extension',
+            'CallerIDNum' => 'caller_id_num',
+            'CallerIDName' => 'caller_id_name',
+            'UniqueID' => 'unique_id',
+            'AccountCode' => 'account_code',
+            'Context' => 'context',
+            'Exten' => 'extension',
         ];
         $params = self::params($event, $map);
         NewChannel::create($params);
@@ -1047,14 +1047,14 @@ class AmiSubscriber
     public function newExtension(Event $event)
     {
         $map = [
-            'Privilege'   => 'privilege',
-            'Channel'     => 'channel',
-            'Extension'   => 'extension',
-            'Context'     => 'context',
-            'UniqueID'    => 'unique_id',
-            'Priority'    => 'priority',
+            'Privilege' => 'privilege',
+            'Channel' => 'channel',
+            'Extension' => 'extension',
+            'Context' => 'context',
+            'UniqueID' => 'unique_id',
+            'Priority' => 'priority',
             'Application' => 'application',
-            'AppData'     => 'app_data',
+            'AppData' => 'app_data',
         ];
         $params = self::params($event, $map);
         NewExtension::create($params);
@@ -1068,14 +1068,14 @@ class AmiSubscriber
     public function newState(Event $event)
     {
         $map = [
-            'Privilege'         => 'privilege',
-            'Channel'           => 'channel',
-            'ChannelState'      => 'channel_state',
-            'ChannelStateDesc'  => 'channel_state_desc',
-            'CallerIDNum'       => 'caller_id_num',
-            'CallerIDName'      => 'caller_id_name',
-            'UniqueID'          => 'unique_id',
-            'ConnectedLineNum'  => 'connected_line_num',
+            'Privilege' => 'privilege',
+            'Channel' => 'channel',
+            'ChannelState' => 'channel_state',
+            'ChannelStateDesc' => 'channel_state_desc',
+            'CallerIDNum' => 'caller_id_num',
+            'CallerIDName' => 'caller_id_name',
+            'UniqueID' => 'unique_id',
+            'ConnectedLineNum' => 'connected_line_num',
             'ConnectedLineName' => 'connected_line_name',
         ];
         $params = self::params($event, $map);
@@ -1090,15 +1090,15 @@ class AmiSubscriber
     public function originateResponse(Event $event)
     {
         $map = [
-            'Privilege'    => 'privilege',
-            'Exten'        => 'extension',
-            'Channel'      => 'channel',
-            'Context'      => 'context',
-            'Reason'       => 'reason',
-            'UniqueID'     => 'unique_id',
-            'ActionID'     => 'action_id',
-            'Response'     => 'response',
-            'CallerIdNum'  => 'caller_id_num',
+            'Privilege' => 'privilege',
+            'Exten' => 'extension',
+            'Channel' => 'channel',
+            'Context' => 'context',
+            'Reason' => 'reason',
+            'UniqueID' => 'unique_id',
+            'ActionID' => 'action_id',
+            'Response' => 'response',
+            'CallerIdNum' => 'caller_id_num',
             'CallerIdName' => 'caller_id_name',
         ];
         $params = self::params($event, $map);
@@ -1113,17 +1113,17 @@ class AmiSubscriber
     public function parkedCall(Event $event)
     {
         $map = [
-            'Privilege'         => 'privilege',
-            'Parkinglot'        => 'parking_lot',
-            'From'              => 'from',
-            'Timeout'           => 'timeout',
-            'ConnectedLineNum'  => 'connected_line_num',
+            'Privilege' => 'privilege',
+            'Parkinglot' => 'parking_lot',
+            'From' => 'from',
+            'Timeout' => 'timeout',
+            'ConnectedLineNum' => 'connected_line_num',
             'ConnectedLineName' => 'connected_line_name',
-            'Channel'           => 'channel',
-            'CallerIDNum'       => 'caller_id_num',
-            'CallerIDName'      => 'caller_id_name',
-            'UniqueID'          => 'unique_id',
-            'Exten'             => 'extension',
+            'Channel' => 'channel',
+            'CallerIDNum' => 'caller_id_num',
+            'CallerIDName' => 'caller_id_name',
+            'UniqueID' => 'unique_id',
+            'Exten' => 'extension',
         ];
         $params = self::params($event, $map);
         ParkedCall::create($params);
@@ -1137,7 +1137,6 @@ class AmiSubscriber
     public function parkedCallsComplete(Event $event)
     {
         $map = [
-
         ];
         $params = self::params($event, $map);
         ParkedCallsComplete::create($params);
@@ -1151,17 +1150,17 @@ class AmiSubscriber
     public function peerEntry(Event $event)
     {
         $map = [
-            'ChannelType'    => 'channel_type',
-            'ObjectName'     => 'object_name',
+            'ChannelType' => 'channel_type',
+            'ObjectName' => 'object_name',
             'ChanObjectType' => 'chan_object_type',
-            'IPAddress'      => 'ip_address',
-            'IPPort'         => 'ip_port',
-            'Dynamic'        => 'dynamic',
-            'NatSupport'     => 'nat_support',
-            'VideoSupport'   => 'video_support',
-            'TextSupport'    => 'text_support',
-            'ACL'            => 'acl',
-            'Status'         => 'status',
+            'IPAddress' => 'ip_address',
+            'IPPort' => 'ip_port',
+            'Dynamic' => 'dynamic',
+            'NatSupport' => 'nat_support',
+            'VideoSupport' => 'video_support',
+            'TextSupport' => 'text_support',
+            'ACL' => 'acl',
+            'Status' => 'status',
             'RealtimeDevice' => 'realtime_device',
         ];
         $params = self::params($event, $map);
@@ -1177,10 +1176,10 @@ class AmiSubscriber
     {
         $map = [
             'ChannelType' => 'channel_type',
-            'Privilege'   => 'privilege',
-            'Peer'        => 'peer',
-            'PeerStatus'  => 'peer_status',
-            'Address'     => 'address',
+            'Privilege' => 'privilege',
+            'Peer' => 'peer',
+            'PeerStatus' => 'peer_status',
+            'Address' => 'address',
         ];
         $params = self::params($event, $map);
         PeerStatus::create($params);
@@ -1208,16 +1207,16 @@ class AmiSubscriber
     public function queueMemberAdded(Event $event)
     {
         $map = [
-            'Privilege'  => 'privilege',
-            'Queue'      => 'queue',
-            'Location'   => 'location',
+            'Privilege' => 'privilege',
+            'Queue' => 'queue',
+            'Location' => 'location',
             'MemberName' => 'member_name',
             'Membership' => 'membership',
-            'Penalty'    => 'penalty',
+            'Penalty' => 'penalty',
             'CallsTaken' => 'calls_taken',
-            'LastCall'   => 'last_call',
-            'Status'     => 'status',
-            'Paused'     => 'paused',
+            'LastCall' => 'last_call',
+            'Status' => 'status',
+            'Paused' => 'paused',
         ];
         $params = self::params($event, $map);
         QueueMemberAdded::create($params);
@@ -1231,14 +1230,14 @@ class AmiSubscriber
     public function queueMember(Event $event)
     {
         $map = [
-            'Queue'      => 'queue',
-            'Location'   => 'location',
-            'Name'       => 'name',
+            'Queue' => 'queue',
+            'Location' => 'location',
+            'Name' => 'name',
             'Membership' => 'membership',
-            'Penalty'    => 'penalty',
+            'Penalty' => 'penalty',
             'CallsTaken' => 'calls_taken',
-            'Status'     => 'status',
-            'Paused'     => 'paused',
+            'Status' => 'status',
+            'Paused' => 'paused',
         ];
         $params = self::params($event, $map);
         QueueMember::create($params);
@@ -1252,11 +1251,11 @@ class AmiSubscriber
     public function queueMemberPaused(Event $event)
     {
         $map = [
-            'Privilege'  => 'privilege',
-            'Queue'      => 'queue',
-            'Location'   => 'location',
+            'Privilege' => 'privilege',
+            'Queue' => 'queue',
+            'Location' => 'location',
             'MemberName' => 'member_name',
-            'Paused'     => 'paused',
+            'Paused' => 'paused',
         ];
         $params = self::params($event, $map);
         QueueMemberPaused::create($params);
@@ -1270,9 +1269,9 @@ class AmiSubscriber
     public function queueMemberRemoved(Event $event)
     {
         $map = [
-            'Privilege'  => 'privilege',
-            'Queue'      => 'queue',
-            'Location'   => 'location',
+            'Privilege' => 'privilege',
+            'Queue' => 'queue',
+            'Location' => 'location',
             'MemberName' => 'member_name',
         ];
         $params = self::params($event, $map);
@@ -1287,15 +1286,15 @@ class AmiSubscriber
     public function queueMemberStatus(Event $event)
     {
         $map = [
-            'Privilege'  => 'privilege',
-            'Queue'      => 'queue',
-            'Location'   => 'location',
+            'Privilege' => 'privilege',
+            'Queue' => 'queue',
+            'Location' => 'location',
             'MemberName' => 'member_name',
             'Membership' => 'membership',
-            'Penalty'    => 'penalty',
+            'Penalty' => 'penalty',
             'CallsTaken' => 'calls_taken',
-            'Status'     => 'status',
-            'Paused'     => 'paused',
+            'Status' => 'status',
+            'Paused' => 'paused',
         ];
         $params = self::params($event, $map);
         QueueMemberStatus::create($params);
@@ -1309,7 +1308,6 @@ class AmiSubscriber
     public function queueStatusComplete(Event $event)
     {
         $map = [
-
         ];
         $params = self::params($event, $map);
         QueueStatusComplete::create($params);
@@ -1323,7 +1321,6 @@ class AmiSubscriber
     public function queueSummaryComplete(Event $event)
     {
         $map = [
-
         ];
         $params = self::params($event, $map);
         QueueSummaryComplete::create($params);
@@ -1337,11 +1334,11 @@ class AmiSubscriber
     public function queueSummary(Event $event)
     {
         $map = [
-            'Queue'           => 'queue',
-            'LoggedIn'        => 'logged_in',
-            'Available'       => 'available',
-            'Callers'         => 'callers',
-            'HoldTime'        => 'hold_time',
+            'Queue' => 'queue',
+            'LoggedIn' => 'logged_in',
+            'Available' => 'available',
+            'Callers' => 'callers',
+            'HoldTime' => 'hold_time',
             'LongestHoldTime' => 'longest_hold_time',
         ];
         $params = self::params($event, $map);
@@ -1356,19 +1353,19 @@ class AmiSubscriber
     public function rtcpReceived(Event $event)
     {
         $map = [
-            'Privilege'            => 'privilege',
-            'From'                 => 'from',
-            'PT'                   => 'pt',
-            'ReceptionReports'     => 'reception_reports',
-            'SenderSSRC'           => 'sender_ssrc',
-            'FractionLost'         => 'fraction_lost',
-            'PacketsLost'          => 'packets_lost',
-            'HighestSequence'      => 'highest_sequence',
+            'Privilege' => 'privilege',
+            'From' => 'from',
+            'PT' => 'pt',
+            'ReceptionReports' => 'reception_reports',
+            'SenderSSRC' => 'sender_ssrc',
+            'FractionLost' => 'fraction_lost',
+            'PacketsLost' => 'packets_lost',
+            'HighestSequence' => 'highest_sequence',
             'SequenceNumberCycles' => 'sequence_number_cycles',
-            'IAJitter'             => 'ia_jitter',
-            'LastSR'               => 'last_sr',
-            'DLSR'                 => 'dlsr',
-            'RTT'                  => 'rtt',
+            'IAJitter' => 'ia_jitter',
+            'LastSR' => 'last_sr',
+            'DLSR' => 'dlsr',
+            'RTT' => 'rtt',
         ];
         $params = self::params($event, $map);
         RTCPReceived::create($params);
@@ -1382,13 +1379,13 @@ class AmiSubscriber
     public function rtcpReceiverStat(Event $event)
     {
         $map = [
-            'Privilege'       => 'privilege',
-            'SSRC'            => 'ssrc',
+            'Privilege' => 'privilege',
+            'SSRC' => 'ssrc',
             'ReceivedPackets' => 'received_packets',
-            'LostPackets'     => 'lost_packets',
-            'Jitter'          => 'jitter',
-            'Transit'         => 'transit',
-            'RRCount'         => 'rr_count',
+            'LostPackets' => 'lost_packets',
+            'Jitter' => 'jitter',
+            'Transit' => 'transit',
+            'RRCount' => 'rr_count',
         ];
         $params = self::params($event, $map);
         RTCPReceiverStat::create($params);
@@ -1402,19 +1399,19 @@ class AmiSubscriber
     public function rtcpSent(Event $event)
     {
         $map = [
-            'Privilege'      => 'privilege',
-            'To'             => 'to',
-            'OurSSRC'        => 'our_ssrc',
-            'SentNTP'        => 'sent_ntp',
-            'SentRTP'        => 'sent_rtp',
-            'SentPackets'    => 'sent_packets',
-            'SentOctets'     => 'sent_octets',
-            'ReportBlock'    => 'report_block',
-            'FractionLost'   => 'fraction_lost',
+            'Privilege' => 'privilege',
+            'To' => 'to',
+            'OurSSRC' => 'our_ssrc',
+            'SentNTP' => 'sent_ntp',
+            'SentRTP' => 'sent_rtp',
+            'SentPackets' => 'sent_packets',
+            'SentOctets' => 'sent_octets',
+            'ReportBlock' => 'report_block',
+            'FractionLost' => 'fraction_lost',
             'CumulativeLoss' => 'cumulative_loss',
-            'IAJitter'       => 'ia_jitter',
-            'TheirLastSR'    => 'their_last_sr',
-            'DLSR'           => 'dlsr',
+            'IAJitter' => 'ia_jitter',
+            'TheirLastSR' => 'their_last_sr',
+            'DLSR' => 'dlsr',
         ];
         $params = self::params($event, $map);
         RTCPSent::create($params);
@@ -1428,13 +1425,13 @@ class AmiSubscriber
     public function rtpReceiverStat(Event $event)
     {
         $map = [
-            'Privilege'       => 'privilege',
-            'SSRC'            => 'ssrc',
+            'Privilege' => 'privilege',
+            'SSRC' => 'ssrc',
             'ReceivedPackets' => 'received_packets',
-            'LostPackets'     => 'lost_packets',
-            'Jitter'          => 'jitter',
-            'Transit'         => 'transit',
-            'RRCount'         => 'rr_count',
+            'LostPackets' => 'lost_packets',
+            'Jitter' => 'jitter',
+            'Transit' => 'transit',
+            'RRCount' => 'rr_count',
         ];
         $params = self::params($event, $map);
         RTPReceiverStat::create($params);
@@ -1448,13 +1445,13 @@ class AmiSubscriber
     public function rtpSenderStat(Event $event)
     {
         $map = [
-            'Privilege'   => 'privilege',
-            'SSRC'        => 'ssrc',
+            'Privilege' => 'privilege',
+            'SSRC' => 'ssrc',
             'SentPackets' => 'sent_packets',
             'LostPackets' => 'lost_packets',
-            'Jitter'      => 'jitter',
-            'RTT'         => 'rtt',
-            'SRCount'     => 'sr_count',
+            'Jitter' => 'jitter',
+            'RTT' => 'rtt',
+            'SRCount' => 'sr_count',
         ];
         $params = self::params($event, $map);
         RTPSenderStat::create($params);
@@ -1482,11 +1479,11 @@ class AmiSubscriber
     public function registry(Event $event)
     {
         $map = [
-            'Privilege'   => 'privilege',
+            'Privilege' => 'privilege',
             'ChannelType' => 'channel_type',
-            'Username'    => 'username',
-            'Domain'      => 'domain',
-            'Status'      => 'status',
+            'Username' => 'username',
+            'Domain' => 'domain',
+            'Status' => 'status',
         ];
         $params = self::params($event, $map);
         Registry::create($params);
@@ -1501,10 +1498,10 @@ class AmiSubscriber
     {
         $map = [
             'Privilege' => 'privilege',
-            'Channel'   => 'channel',
-            'Oldname'   => 'old_name',
-            'Newname'   => 'new_name',
-            'UniqueID'  => 'unique_id',
+            'Channel' => 'channel',
+            'Oldname' => 'old_name',
+            'Newname' => 'new_name',
+            'UniqueID' => 'unique_id',
         ];
         $params = self::params($event, $map);
         Rename::create($params);
@@ -1518,11 +1515,11 @@ class AmiSubscriber
     public function showDialPlanComplete(Event $event)
     {
         $map = [
-            'Privilege'      => 'privilege',
-            'listitems'      => 'list_items',
+            'Privilege' => 'privilege',
+            'listitems' => 'list_items',
             'listextensions' => 'list_extensions',
             'listpriorities' => 'list_priorities',
-            'listcontexts'   => 'list_contexts',
+            'listcontexts' => 'list_contexts',
         ];
         $params = self::params($event, $map);
         ShowDialPlanComplete::create($params);
@@ -1550,22 +1547,22 @@ class AmiSubscriber
     public function status(Event $event)
     {
         $map = [
-            'BridgedUniqueID'  => 'bridged_unique_id',
-            'Privilege'        => 'privilege',
-            'Channel'          => 'channel',
-            'Context'          => 'context',
-            'Extension'        => 'extension',
-            'UniqueID'         => 'unique_id',
-            'Priority'         => 'priority',
-            'ChannelState'     => 'channel_state',
+            'BridgedUniqueID' => 'bridged_unique_id',
+            'Privilege' => 'privilege',
+            'Channel' => 'channel',
+            'Context' => 'context',
+            'Extension' => 'extension',
+            'UniqueID' => 'unique_id',
+            'Priority' => 'priority',
+            'ChannelState' => 'channel_state',
             'ChannelStateDesc' => 'channel_state_desc',
-            'Application'      => 'application',
-            'ApplicationData'  => 'application_data',
-            'CallerIDNum'      => 'caller_id_num',
-            'Duration'         => 'duration',
-            'AccountCode'      => 'account_code',
-            'Seconds'          => 'seconds',
-            'BridgedChannel'   => 'bridged_channel',
+            'Application' => 'application',
+            'ApplicationData' => 'application_data',
+            'CallerIDNum' => 'caller_id_num',
+            'Duration' => 'duration',
+            'AccountCode' => 'account_code',
+            'Seconds' => 'seconds',
+            'BridgedChannel' => 'bridged_channel',
         ];
         $params = self::params($event, $map);
         Status::create($params);
@@ -1579,15 +1576,15 @@ class AmiSubscriber
     public function transfer(Event $event)
     {
         $map = [
-            'Privilege'       => 'privilege',
-            'Channel'         => 'channel',
-            'TransferMethod'  => 'transfer_method',
-            'TransferType'    => 'transfer_type',
-            'TargetChannel'   => 'target_channel',
-            'SIP-Callid'      => 'sip_call_id',
-            'UniqueID'        => 'unique_id',
-            'TargetUniqueid'  => 'target_unique_id',
-            'TransferExten'   => 'transfer_extension',
+            'Privilege' => 'privilege',
+            'Channel' => 'channel',
+            'TransferMethod' => 'transfer_method',
+            'TransferType' => 'transfer_type',
+            'TargetChannel' => 'target_channel',
+            'SIP-Callid' => 'sip_call_id',
+            'UniqueID' => 'unique_id',
+            'TargetUniqueid' => 'target_unique_id',
+            'TransferExten' => 'transfer_extension',
             'TransferContext' => 'transfer_context',
         ];
         $params = self::params($event, $map);
@@ -1602,16 +1599,16 @@ class AmiSubscriber
     public function unParkedCall(Event $event)
     {
         $map = [
-            'Privilege'         => 'privilege',
-            'Parkinglot'        => 'parking_lot',
-            'From'              => 'from',
-            'ConnectedLineNum'  => 'connected_line_num',
+            'Privilege' => 'privilege',
+            'Parkinglot' => 'parking_lot',
+            'From' => 'from',
+            'ConnectedLineNum' => 'connected_line_num',
             'ConnectedLineName' => 'connected_line_name',
-            'Channel'           => 'channel',
-            'CallerIDNum'       => 'caller_id_num',
-            'CallerIDName'      => 'caller_id_name',
-            'UniqueID'          => 'unique_id',
-            'Exten'             => 'extension',
+            'Channel' => 'channel',
+            'CallerIDNum' => 'caller_id_num',
+            'CallerIDName' => 'caller_id_name',
+            'UniqueID' => 'unique_id',
+            'Exten' => 'extension',
         ];
         $params = self::params($event, $map);
         UnParkedCall::create($params);
@@ -1626,8 +1623,8 @@ class AmiSubscriber
     {
         $map = [
             'Privilege' => 'privilege',
-            'Channel1'  => 'channel_first',
-            'Channel2'  => 'channel_second',
+            'Channel1' => 'channel_first',
+            'Channel2' => 'channel_second',
             'CallerID1' => 'caller_id_first',
             'CallerID2' => 'caller_id_second',
             'UniqueID1' => 'unique_id_first',
@@ -1646,7 +1643,7 @@ class AmiSubscriber
     {
         $map = [
             'Privilege' => 'privilege',
-            'UniqueID'  => 'unique_id',
+            'UniqueID' => 'unique_id',
             'UserEvent' => 'user_event',
         ];
         $params = self::params($event, $map);
@@ -1662,10 +1659,10 @@ class AmiSubscriber
     {
         $map = [
             'Privilege' => 'privilege',
-            'UniqueID'  => 'unique_id',
-            'Channel'   => 'channel',
-            'Variable'  => 'variable',
-            'Value'     => 'value',
+            'UniqueID' => 'unique_id',
+            'Channel' => 'channel',
+            'Variable' => 'variable',
+            'Value' => 'value',
         ];
         $params = self::params($event, $map);
         VarSet::create($params);

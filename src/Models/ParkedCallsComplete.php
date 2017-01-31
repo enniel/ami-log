@@ -17,6 +17,5 @@ class ParkedCallsComplete extends Model
      * @var array
      */
     protected $fillable = [
-
     ];
 }

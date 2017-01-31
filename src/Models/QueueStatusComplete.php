@@ -17,6 +17,5 @@ class QueueStatusComplete extends Model
      * @var array
      */
     protected $fillable = [
-
     ];
 }

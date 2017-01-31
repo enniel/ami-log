@@ -15,8 +15,6 @@ class CreateDongleNewCUSDTable extends Migration
 
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
@@ -32,8 +30,6 @@ class CreateDongleNewCUSDTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

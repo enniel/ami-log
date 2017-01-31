@@ -17,6 +17,5 @@ class QueueSummaryComplete extends Model
      * @var array
      */
     protected $fillable = [
-
     ];
 }

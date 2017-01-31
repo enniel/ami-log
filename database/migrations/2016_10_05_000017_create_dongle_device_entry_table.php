@@ -15,8 +15,6 @@ class CreateDongleDeviceEntryTable extends Migration
 
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
@@ -88,8 +86,6 @@ class CreateDongleDeviceEntryTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

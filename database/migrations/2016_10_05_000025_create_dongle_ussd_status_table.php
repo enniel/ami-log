@@ -15,8 +15,6 @@ class CreateDongleUSSDStatusTable extends Migration
 
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
@@ -33,8 +31,6 @@ class CreateDongleUSSDStatusTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

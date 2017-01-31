@@ -15,8 +15,6 @@ class CreateBridgeTable extends Migration
 
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
@@ -38,8 +36,6 @@ class CreateBridgeTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

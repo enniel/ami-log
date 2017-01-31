@@ -15,8 +15,6 @@ class CreateListDialPlanTable extends Migration
 
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
@@ -36,8 +34,6 @@ class CreateListDialPlanTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

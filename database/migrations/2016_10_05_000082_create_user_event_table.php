@@ -15,8 +15,6 @@ class CreateUserEventTable extends Migration
 
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
@@ -32,8 +30,6 @@ class CreateUserEventTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

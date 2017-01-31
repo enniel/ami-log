@@ -15,8 +15,6 @@ class CreateMasqueradeTable extends Migration
 
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
@@ -34,8 +32,6 @@ class CreateMasqueradeTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

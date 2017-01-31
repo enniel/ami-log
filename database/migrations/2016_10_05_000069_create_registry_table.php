@@ -15,8 +15,6 @@ class CreateRegistryTable extends Migration
 
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
@@ -34,8 +32,6 @@ class CreateRegistryTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

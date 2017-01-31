@@ -29,7 +29,6 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
      */
     protected $events;
 
-    //
     protected function getPackageProviders($app)
     {
         return [
