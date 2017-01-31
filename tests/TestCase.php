@@ -2,6 +2,7 @@
 
 namespace Enniel\AmiLog\Tests;
 
+use Orchestra\Database\MigrationServiceProvider;
 use Enniel\AmiLog\AmiLogServiceProvider;
 use React\EventLoop\LoopInterface;
 use React\Stream\Stream;
@@ -34,6 +35,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         return [
             AmiLogServiceProvider::class,
             AmiServiceProvider::class,
+            MigrationServiceProvider::class,
         ];
     }
 

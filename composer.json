@@ -19,13 +19,14 @@
         "illuminate/support": "~5.1",
         "illuminate/events": "~5.1",
         "illuminate/database": "~5.1",
-        "enniel/ami": "~1.1.3"
+        "enniel/ami": "~1.2.0"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "~2.7",
         "phpunit/phpunit": "~4.8|~5.0",
         "react/promise": "~2.4.1",
-        "orchestra/testbench": "~3.1.8|~3.2.6|~3.3.2"
+        "orchestra/testbench": "~3.1.8|~3.2.6|~3.3.2",
+        "orchestra/database": "~3.1"
     },
     "autoload": {
         "psr-4": {
