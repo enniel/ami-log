@@ -131,6 +131,9 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
             'DongleNewUSSD' => [
                 'handler' => 'dongle_new_ussd',
             ],
+            'DonglePortFail' => [
+                'handler' => 'dongle_port_fail',
+            ],
             'DongleSMSStatus' => [
                 'handler' => 'dongle_sms_status',
             ],

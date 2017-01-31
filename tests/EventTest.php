@@ -10,6 +10,7 @@ use Enniel\AmiLog\Models\Dial;
 use Enniel\AmiLog\Models\FullyBooted;
 use Enniel\AmiLog\Models\Join;
 use Enniel\AmiLog\Models\Link;
+use Enniel\AmiLog\Models\DonglePortFail;
 
 class EventTest extends TestCase
 {
@@ -106,6 +107,12 @@ class EventTest extends TestCase
                 'Position' => '1',
                 'Count' => '1',
                 'Uniqueid' => '1321511811.113',
+            ],
+            [
+                'Event' => 'DonglePortFail',
+                'Privilege' => 'call,all',
+                'Device' => '/dev/ttyUSB8',
+                'Message' => 'Response Failed',
             ],
         ];
         $this->events->listen('ami.listen.started', function () use ($messages) {
@@ -215,6 +222,13 @@ class EventTest extends TestCase
                 'position' => '1',
                 'count' => '1',
                 'unique_id' => '1321511811.113',
+            ]);
+        });
+        DonglePortFail::created(function ($model) {
+            $this->assertEquals($this->getModelAttribues($model), [
+                'privilege' => 'call,all',
+                'device' => '/dev/ttyUSB8',
+                'message' => 'Response Failed',
             ]);
             $this->running = false;
         });

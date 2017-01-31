@@ -25,6 +25,7 @@ use Enniel\AmiLog\Models\DongleDeviceEntry;
 use Enniel\AmiLog\Models\DongleNewCUSD;
 use Enniel\AmiLog\Models\DongleNewUSSD;
 use Enniel\AmiLog\Models\DongleNewUSSDBase64;
+use Enniel\AmiLog\Models\DonglePortFail;
 use Enniel\AmiLog\Models\DongleShowDevicesComplete;
 use Enniel\AmiLog\Models\DongleSMSStatus;
 use Enniel\AmiLog\Models\DongleStatus;
@@ -110,6 +111,7 @@ class AmiSubscriber
         'dongle_new_cusd',
         'dongle_new_ussd_base64',
         'dongle_new_ussd',
+        'dongle_port_fail',
         'dongle_sms_status',
         'dongle_show_devices_complete',
         'dongle_status',
@@ -715,6 +717,22 @@ class AmiSubscriber
         ];
         $params = self::params($event, $map);
         DongleNewUSSD::create($params);
+    }
+
+    /**
+     * DonglePortFail handler.
+     *
+     * @param Clue\React\Ami\Protocol\Event $event
+     */
+    public function donglePortFail(Event $event)
+    {
+        $map = [
+            'Privilege' => 'privilege',
+            'Device' => 'device',
+            'message' => 'message',
+        ];
+        $params = self::params($event, $map);
+        DonglePortFail::create($params);
     }
 
     /**
