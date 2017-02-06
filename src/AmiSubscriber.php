@@ -201,7 +201,7 @@ class AmiSubscriber
                 'UniqueID2' => 'unique_id_second',
             ],
         ],
-        'CDR' => [
+        'Cdr' => [
             'model' => CDR::class,
             'map' => [
                 'Privilege' => 'privilege',
